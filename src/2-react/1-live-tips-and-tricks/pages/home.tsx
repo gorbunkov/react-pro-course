@@ -8,6 +8,9 @@ export const HomePage = () => {
             <Hero />
             <section className="tip-list">
                 <Tip/>
+                <Tip/>
+                <Tip/>
+                <Tip/>
             </section>
         </section>
     );

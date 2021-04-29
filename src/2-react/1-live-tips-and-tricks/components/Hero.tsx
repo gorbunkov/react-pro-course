@@ -30,6 +30,15 @@ export const Hero = () => {
                 <span>
                     <icons.VSCode/>VSCode
                 </span>
+                <span>
+                    <icons.CSS/>CSS
+                </span>
+                <span>
+                    <icons.Git/>Git
+                </span>
+                <span>
+                    <icons.GraphQL/>GraphQL
+                </span>
             </div>
         </section>
     )
