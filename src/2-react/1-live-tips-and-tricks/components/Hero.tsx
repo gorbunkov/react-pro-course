@@ -2,6 +2,7 @@
 import { icons } from '../theme/icons/tag';
 import { NodeJS } from '../theme/icons/tag/NodeJS';
 import { NextJS } from '../theme/icons/tag/NextJS';
+import { UI_UX } from '../theme/icons/tag/UI_UX';
 
 export const Hero = () => {
     return (
@@ -38,6 +39,21 @@ export const Hero = () => {
                 </span>
                 <span>
                     <icons.GraphQL/>GraphQL
+                </span>
+                <span>
+                    <UI_UX/>UI/UX
+                </span>
+                <span>
+                    <icons.Npm/>Npm
+                </span>
+                <span>
+                    <icons.Testing/>Testing
+                </span>
+                <span>
+                    <icons.macOS/>macOS
+                </span>
+                <span>
+                    <icons.Tools/>Tools
                 </span>
             </div>
         </section>
