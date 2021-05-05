@@ -1,17 +1,12 @@
 /* Components */
-import { Nav, Hero, Tip } from '../components';
+import { Nav, Hero, TipList } from '../components';
 
 export const HomePage = () => {
     return (
         <section className='layout'>
             <Nav />
             <Hero />
-            <section className="tip-list">
-                <Tip/>
-                <Tip/>
-                <Tip/>
-                <Tip/>
-            </section>
+            <TipList />
         </section>
     );
 };
