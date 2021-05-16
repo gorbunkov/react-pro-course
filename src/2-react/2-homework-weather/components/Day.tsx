@@ -2,22 +2,21 @@
 import {FC} from "react";
 
 export const Day: FC<DayProps> = (props: DayProps) => {
-    const styles = ["day"]
-    if (props.sunny) styles.push('sunny')
-    if (props.rainy) styles.push('rainy')
-    if (props.cloudy) styles.push('cloudy')
+    const styles = ["day", props.type];
+    const weekdayName = new Intl.DateTimeFormat('ru-RU', { weekday: 'long'}).format(new Date(props.day));
     return (
         <div className={styles.join(" ")}>
-            <p>{props.name}</p>
+            <p>{weekdayName}</p>
             <span>{props.temperature}</span>
         </div>
-    )
+    );
 }
 
 interface DayProps {
-    sunny?: boolean,
-    rainy?: boolean,
-    cloudy?: boolean,
-    name: string,
-    temperature: number
+    id: string,
+    day: number,
+    rainProbability: number,
+    humidity: number,
+    temperature: number,
+    type: string,
 }

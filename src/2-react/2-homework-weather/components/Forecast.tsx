@@ -1,19 +1,26 @@
 /* Core */
-import {FC} from "react";
+import {FC, useEffect} from "react";
 
 /* Components */
 import {Day} from "./Day";
 
+/* Data */
+import days from '../mock-data/forecast.json';
+
 export const Forecast: FC = () => {
+    const dayListJSX = days.slice(7)
+        .map((dayData) => {
+            return <Day id={dayData.id}
+                        day={dayData.day}
+                        temperature={dayData.temperature}
+                        rainProbability={dayData.rain_probability}
+                        humidity={dayData.humidity}
+                        type={dayData.type}/>
+        });
+
     return (
         <div className="forecast">
-            <Day name={'Пятница'} temperature={17} cloudy={true}/>
-            <Day name={'Суббота'} temperature={19} cloudy={true}/>
-            <Day name={'Понедельник'} temperature={18} cloudy={true}/>
-            <Day name={'Вторник'} temperature={21} cloudy={true}/>
-            <Day name={'Среда'} temperature={16} rainy={true}/>
-            <Day name={'Четверг'} temperature={19} rainy={true}/>
-            <Day name={'Пятница'} temperature={19} sunny={true}/>
+            {dayListJSX}
         </div>
-    )
+    );
 }
