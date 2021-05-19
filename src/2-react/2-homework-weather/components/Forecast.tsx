@@ -1,26 +1,33 @@
 /* Core */
-import {FC, useEffect} from "react";
+import {FC} from "react";
+import Loader from 'react-loader-spinner'
 
 /* Components */
 import {Day} from "./Day";
 
-/* Data */
-import days from '../mock-data/forecast.json';
+/* Hooks */
+import {useDays} from "../hooks/useDays";
 
 export const Forecast: FC = () => {
-    const dayListJSX = days.slice(7)
-        .map((dayData) => {
-            return <Day id={dayData.id}
-                        day={dayData.day}
-                        temperature={dayData.temperature}
-                        rainProbability={dayData.rain_probability}
-                        humidity={dayData.humidity}
-                        type={dayData.type}/>
-        });
+    const {data: days, isFetching} = useDays();
 
-    return (
-        <div className="forecast">
-            {dayListJSX}
+    const daysJSX = days?.map((dayData) => {
+        return <Day key={dayData.id}
+                    id={dayData.id}
+                    day={dayData.day}
+                    temperature={dayData.temperature}
+                    rainProbability={dayData.rain_probability}
+                    humidity={dayData.humidity}
+                    type={dayData.type}/>
+    });
+
+    return isFetching ? (
+        <div className="loading-indicator">
+            <Loader type='ThreeDots' color={'#966590'}/>
         </div>
-    );
+    ) : (
+        <div className="forecast">
+            {daysJSX}
+        </div>
+    )
 }
